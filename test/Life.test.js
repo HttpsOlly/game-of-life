@@ -2,6 +2,7 @@
 
 const { expect, assert } = require("chai");
 
+const Map = require("../lib/Map");
 const Life = require("../lib/Life");
 
 describe("Life Tests", () => {
@@ -12,4 +13,13 @@ describe("Life Tests", () => {
       expect(life.next().getLiveCells().size).to.equal(0);
     })
   })
+  
+  describe("Scenario 1: Underpopulation", () => {
+    it("should die when a cell has fewer than two neighbours", () => {
+      const life = new Life(new Map());
+      expect(life.isCellSurvivable(0)).to.equal(false);
+      expect(life.isCellSurvivable(1)).to.equal(false);
+    })
+  })
+
 });
