@@ -47,4 +47,13 @@ describe("Life Tests", () => {
     })
   })
 
+  describe("Scenario 5: Grid with no live cells", () => {
+    it("should evolve an empty grid into an empty grid", () => {
+      const emptyLiveCells = new Map();
+      const life1 = new Life(emptyLiveCells);
+      assert.deepEqual(life1, life1.next());
+    })
+  })
+
+
 });
