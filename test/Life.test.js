@@ -77,6 +77,15 @@ describe("Life Tests", () => {
       expect(life.neighbours(cell1)).to.equal(1);
       expect(life.neighbours(cell2)).to.equal(1);
     })
+
+    it("should not count itself", () => {
+      const cell = new Cell(13,13);
+      const cells = new Map();
+      cells.addCells([cell]);
+      const life = new Life(cells);
+
+      expect(life.neighbours(cell)).to.equal(0);
+    })
   })
 
   describe("Scenario 6: Expected game outcome for seeded grid", () => {
