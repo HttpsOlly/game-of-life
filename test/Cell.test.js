@@ -37,4 +37,31 @@ describe("Cell Tests", () => {
     });
   });
 
+  describe("Uniqueness", () => {
+
+    it("should calculate identical hashes of cells with the same x and y coordinates", () => {
+      expect(new Cell(1, 1).hashCode()).to.equal(new Cell(1, 1).hashCode());
+    })
+
+    it("should create only one entry for cells with the same x and y coordinates", () => {
+      const collection = new Map();
+      collection.addCells([
+        new Cell(0, 0), 
+        new Cell(0, 0),
+        new Cell(1, 1),
+      ]);
+
+      expect(collection.size).to.equal(2);
+    });
+
+    it("should identify two equivalent sets of cells containing cells with identical x and y coordinates", function () {
+      const collection1 = new Map();
+      collection1.addCells([new Cell(1, 1)]);
+
+      const collection2 = new Map();
+      collection2.addCells([new Cell(1, 1)]);
+
+      expect(collection1.equals(collection2)).to.equal(true);
+    });
+  });
 });
