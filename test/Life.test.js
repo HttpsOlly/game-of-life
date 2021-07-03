@@ -97,6 +97,20 @@ describe("Life Tests", () => {
       expect(life.neighbours(cell1)).to.equal(1);
       expect(life.neighbours(cell2)).to.equal(1); 
     })
+
+    it("should count diagonal neighbours", () => {
+      const topLeft     = new Cell(1, 3);
+      const topRight    = new Cell(3, 3);
+      const bottomLeft  = new Cell(1, 1);
+      const bottomRight = new Cell(3, 1);
+      const middle      = new Cell(2, 2);
+
+      const cells = new Map();
+      cells.addCells([topLeft, bottomLeft, bottomRight, topRight, middle]);
+      const life = new Life(cells);
+
+      expect(life.neighbours(middle)).to.equal(4);
+    })
   })
 
   describe("Scenario 6: Expected game outcome for seeded grid", () => {
