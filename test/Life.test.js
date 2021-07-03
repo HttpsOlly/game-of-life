@@ -2,6 +2,7 @@
 
 const { expect, assert } = require("chai");
 
+const Cell = require("../lib/Cell");
 const Map = require("../lib/Map");
 const Life = require("../lib/Life");
 
@@ -52,6 +53,36 @@ describe("Life Tests", () => {
       const emptyLiveCells = new Map();
       const life1 = new Life(emptyLiveCells);
       assert.deepEqual(life1, life1.next());
+    })
+  })
+
+  describe("Neighbours", () => {
+
+    it("should be zero with no neighbours", () => {
+      const cell = new Cell(0,1);
+      const cells = new Map();
+      cells.addCells([cell]);
+      const life = new Life(cells);
+
+      expect(life.neighbours(cell)).to.equal(0);
+    })
+    
+  })
+
+  describe("Scenario 6: Expected game outcome for seeded grid", () => {
+    const horzLiveCells = new Map();
+    horzLiveCells.addCells([new Cell(1, 2), new Cell(2, 2), new Cell(3, 2)]);
+    
+    const vertLiveCells = new Map();
+    vertLiveCells.addCells([new Cell(2, 1), new Cell(2, 2), new Cell(2, 3)]);
+
+    xit("should follow the pattern of a Blinker", () => {
+      expect(horzLiveCells.size()).to.equal(3);
+
+      const horzLife = new Life(horzLiveCells);
+      const vertLife = new Life(vertLiveCells);
+      assert.deepEqual(horzLife.next(), vertLife);
+      assert.deepEqual(vertLife.next(), horzLife);
     })
   })
 
