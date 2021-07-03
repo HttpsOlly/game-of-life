@@ -3,6 +3,7 @@
 const expect = require("chai").expect;
 
 const Cell = require("../lib/Cell");
+const Map = require("../lib/Map");
 
 describe("Cell Tests", () => {
 
