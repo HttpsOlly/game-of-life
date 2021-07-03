@@ -21,5 +21,15 @@ describe("Life Tests", () => {
       expect(life.isCellSurvivable(1)).to.equal(false);
     })
   })
-
+  
+  describe("Scenario 2: Overcrowding", () => {
+    it.only("should die when a cell has more than three neighbours", () => {
+      const life = new Life(new Map());
+      expect(life.isCellSurvivable(4)).to.equal(false);
+      expect(life.isCellSurvivable(5)).to.equal(false);
+      expect(life.isCellSurvivable(6)).to.equal(false);
+      expect(life.isCellSurvivable(7)).to.equal(false);
+      expect(life.isCellSurvivable(8)).to.equal(false);
+    })
+  })
 });
