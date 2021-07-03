@@ -37,9 +37,14 @@ describe("Life Tests", () => {
     it("should stay alive when a cell has two or three neighbours", () => {
       const life = new Life(new Map());
       expect(life.isCellSurvivable(2)).to.equal(true);
-      expect(life.isCellSurvivable(3)).to.equal(true);
     })
   })
 
+  describe("Scenario 4: Creation of Life", () => {
+    it("should create a new cell when an empty cell has exactly three neighbours", () => {
+      const life = new Life(new Map());
+      expect(life.isCellSurvivable(3)).to.equal(true);
+    })
+  })
 
 });
