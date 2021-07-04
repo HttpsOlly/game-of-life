@@ -42,7 +42,7 @@ The collections available in JavaScript are Array, Map and Set.
 
 I will use a Map.
 
-Map uses [`key`, `value`] pairs. To uniquely store a Cell each `key` needs to be unique. The uniqueness can be obtained from the Cell `x` and `y` properties, but to differentiate between `(0,1)` and `(1,0)` it needs a hash. I will follow other approaches on the internet to multiply the properties by small prime numbers and add together to make a hash. 
+Map uses (`key`, `value`) pairs. To uniquely store a Cell each `key` needs to be unique. The uniqueness can be obtained from the Cell `x` and `y` properties, but to differentiate between `(0,1)` and `(1,0)` it needs a calculated hash that distinguishes between `x` and `y`. I will follow other approaches on the internet to multiply the properties by small prime numbers and add together to make a hash. 
 
 Here's an entity relationship diagram showing a bit more detail. `Life` has one `Map` which has zero or more `Cell`. A `Cell` identifies itself by holding its `x` and `y` properties, and surfaces a `hashCode()` method based on a calculation on those properties.
 
@@ -51,6 +51,8 @@ Here's an entity relationship diagram showing a bit more detail. `Life` has one 
 The challenge asks for an "infinite" two-dimensional grid, and by using `Integer` type for `x` and `y` positions this has a limitation of the size of `Integer` but presumably that's sufficient for this approach.
 
 ### Reflection
+
+Post-implementation, I am now reflecting on my approach and my solution.
 
 Scenarios 0 to 4 were achievable with a simple `true`/`false` switch on number of neighbours which I implemented in `isCellSurvivable()`. Only Scenario 0 asks for an evolution. The remainder of my solution was based on the premise that this approach is sound. Only when I implemented the final line of code did I realise that `isCellSurvivable()` is not used. I now wonder if this is the learning outcome I was expected to experience, and should I instead question my approach. (I now wonder if my "house of cards" is about to fall down, but I *think* my tests are trustable).
 
