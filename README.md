@@ -4,16 +4,19 @@
 This is my solution to [BBC Game of Life technical challenge](docs/Game+of+Life+Candidate+Instructions.md).
 
 ## Installation
+    npm install
 
 ## Execution
+    npm run test
+Without an explicit instruction to provide visual output I chose to focus on logic alone. Assuming my tests are sufficient, a suite of passing tests is an indicator of success.
 
 ## Narrative
 
-Approach
-1. Search internet for successful and unsuccessful approaches and take inspiration from them
+### Approach
+1. Search internet for successful and unsuccessful approaches and take inspiration from (not copy!) them
 1. Create a skeleton starting point, check into Github, submit link to assessor
-1. Iterate on scenarios, committing to Github often, create release points for each successful scenario
-1. Document and publish
+1. Iterate on scenarios, committing to Github often
+1. Document 
 
 After searching the internet, I realised these things:
 - The grid size is "infinite" meaning my initial throughs of a two-dimensional array wouldn't work due to memory capacity
@@ -39,3 +42,18 @@ The collections available in JavaScript are Array, Map and Set.
 
 I will use a Map.
 
+Map uses [`key`, `value`] pairs. To uniquely store a Cell each `key` needs to be unique. The uniqueness can be obtained from the Cell `x` and `y` properties, but to differentiate between `(0,1)` and `(1,0)` it needs a hash. I will follow other approaches on the internet to multiply the properties by small prime numbers and add together to make a hash. 
+
+Here's an entity relationship diagram showing a bit more detail. `Life` has one `Map` which has zero or more `Cell`. A `Cell` identifies itself by holding its `x` and `y` properties, and surfaces a `hashCode()` method based on a calculation on those properties.
+
+![](docs/ER-DiagramDetail.png) 
+
+The challenge asks for an "infinite" two-dimensional grid, and by using `Integer` type for `x` and `y` positions this has a limitation of the size of `Integer` but presumably that's sufficient for this approach.
+
+### Reflection
+
+Scenarios 0 to 4 were achievable with a simple `true`/`false` switch on number of neighbours which I implemented in `isCellSurvivable()`. Only Scenario 0 asks for an evolution. The remainder of my solution was based on the premise that this approach is sound. Only when I implemented the final line of code did I realise that `isCellSurvivable()` is not used. I now wonder if this is the learning outcome I was expected to experience, and should I instead question my approach. (I now wonder if my "house of cards" is about to fall down, but I *think* my tests are trustable).
+
+Also, before starting to implement I did believe that uniqueness in Map needed me to write an `equals()` method because `Map` doesn't come with one, so I wrote one based on the hash approach, but removed it from the final implementation as it isn't needed.
+
+This was my first time with test driven development. I have learned that if I can write reliable tests, then I have more confidence in writing code, safe in the knowledge that my tests have my back. 
