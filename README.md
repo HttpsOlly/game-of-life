@@ -54,7 +54,7 @@ The challenge asks for an "infinite" two-dimensional grid, and by using `Integer
 
 Post-implementation, I am now reflecting on my approach and my solution.
 
-Scenarios 0 to 4 were achievable with a simple `true`/`false` switch on number of neighbours which I implemented in `isCellSurvivable()`. Only Scenario 0 asks for an evolution. The remainder of my solution was based on the premise that this approach is sound. Only when I implemented the final line of code did I realise that `isCellSurvivable()` is not used. I now wonder if this is the learning outcome I was expected to experience, and should I instead question my approach. (I now wonder if my "house of cards" is about to fall down, but I *think* my tests are trustable).
+Scenarios 0 to 4 were achievable with a simple `true`/`false` switch on number of neighbours which I implemented in `isCellSurvivable()`. Only Scenario 0 asks for an evolution. The remainder of my solution was based on the premise that this approach is sound. Only when I implemented the final line of code did I realise that `isCellSurvivable()` is not used. I now wonder if this is the learning outcome I was expected to experience, and should I instead question my approach. (I now wonder if my "house of cards" is about to fall down, but I *think* my tests are trustable). Following a short period of thinking time, I returned to the code and modified `isCellSurvivable()` to also test non-live cells in https://github.com/HttpsOlly/game-of-life/pull/1.
 
 Also, before starting to implement I did believe that uniqueness in Map needed me to write an `equals()` method because `Map` doesn't come with one, so I wrote one based on the hash approach, but removed it from the final implementation as it isn't needed.
 
