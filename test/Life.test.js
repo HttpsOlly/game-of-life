@@ -18,33 +18,42 @@ describe("Life Tests", () => {
   describe("Scenario 1: Underpopulation", () => {
     it("should die when a cell has fewer than two neighbours", () => {
       const life = new Life(new Map());
-      expect(life.isCellSurvivable(0)).to.equal(false);
-      expect(life.isCellSurvivable(1)).to.equal(false);
+      expect(life.isCellSurvivable(true, 0)).to.equal(false);
+      expect(life.isCellSurvivable(true, 1)).to.equal(false);
     })
   })
   
   describe("Scenario 2: Overcrowding", () => {
     it("should die when a cell has more than three neighbours", () => {
       const life = new Life(new Map());
-      expect(life.isCellSurvivable(4)).to.equal(false);
-      expect(life.isCellSurvivable(5)).to.equal(false);
-      expect(life.isCellSurvivable(6)).to.equal(false);
-      expect(life.isCellSurvivable(7)).to.equal(false);
-      expect(life.isCellSurvivable(8)).to.equal(false);
+      expect(life.isCellSurvivable(true, 4)).to.equal(false);
+      expect(life.isCellSurvivable(true, 5)).to.equal(false);
+      expect(life.isCellSurvivable(true, 6)).to.equal(false);
+      expect(life.isCellSurvivable(true, 7)).to.equal(false);
+      expect(life.isCellSurvivable(true, 8)).to.equal(false);
     })
   })
 
   describe("Scenario 3: Survival", () => {
     it("should stay alive when a cell has two or three neighbours", () => {
       const life = new Life(new Map());
-      expect(life.isCellSurvivable(2)).to.equal(true);
+      expect(life.isCellSurvivable(true, 2)).to.equal(true);
+      expect(life.isCellSurvivable(true, 3)).to.equal(true);
     })
   })
 
   describe("Scenario 4: Creation of Life", () => {
     it("should create a new cell when an empty cell has exactly three neighbours", () => {
       const life = new Life(new Map());
-      expect(life.isCellSurvivable(3)).to.equal(true);
+      expect(life.isCellSurvivable(false, 0)).to.equal(false);
+      expect(life.isCellSurvivable(false, 1)).to.equal(false);
+      expect(life.isCellSurvivable(false, 2)).to.equal(false);
+      expect(life.isCellSurvivable(false, 3)).to.equal(true);
+      expect(life.isCellSurvivable(false, 4)).to.equal(false);
+      expect(life.isCellSurvivable(false, 5)).to.equal(false);
+      expect(life.isCellSurvivable(false, 6)).to.equal(false);
+      expect(life.isCellSurvivable(false, 7)).to.equal(false);
+      expect(life.isCellSurvivable(false, 8)).to.equal(false);
     })
   })
 
