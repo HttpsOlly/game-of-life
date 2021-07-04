@@ -1,0 +1,20 @@
+{
+  "name": "gameoflife",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "> 6"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "mocha": "mocha --recursive",
+    "test": "npm run mocha"
+  },
+  "author": "Olly Potts <potts.oliver@gmail.com>",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^7.29.0",
+    "eslint-plugin-import": "^2.23.4",
+    "mocha": "^9.0.1"
+  }
+}
