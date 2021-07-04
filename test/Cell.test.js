@@ -54,15 +54,5 @@ describe("Cell Tests", () => {
 
       expect(collection.size).to.equal(2);
     });
-
-    it("should identify two equivalent sets of cells containing cells with identical x and y coordinates", function () {
-      const collection1 = new Map();
-      collection1.addCells([new Cell(1, 1)]);
-
-      const collection2 = new Map();
-      collection2.addCells([new Cell(1, 1)]);
-
-      expect(collection1.equals(collection2)).to.equal(true);
-    });
   });
 });
