@@ -3,7 +3,7 @@
 const { expect, assert } = require("chai");
 
 const Cell = require("../lib/Cell");
-const Map = require("../lib/Map");
+const Map  = require("../lib/Map");
 const Life = require("../lib/Life");
 
 describe("Life Tests", () => {
@@ -120,15 +120,14 @@ describe("Life Tests", () => {
     const vertLiveCells = new Map();
     vertLiveCells.addCells([new Cell(2, 1), new Cell(2, 2), new Cell(2, 3)]);
 
-    xit("should follow the pattern of a Blinker", () => {
-      expect(horzLiveCells.size()).to.equal(3);
+    it("should follow the pattern of a Blinker", () => {
+      expect(horzLiveCells.size).to.equal(3);
 
       const horzLife = new Life(horzLiveCells);
       const vertLife = new Life(vertLiveCells);
+
       assert.deepEqual(horzLife.next(), vertLife);
       assert.deepEqual(vertLife.next(), horzLife);
     })
   })
-
-
 });
