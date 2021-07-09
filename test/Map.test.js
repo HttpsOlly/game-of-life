@@ -32,4 +32,21 @@ describe("Map Tests", () => {
       expect(map.size).to.equal(1);
     });
   });
+
+  describe("Presence", () => {
+
+    it("should return false for a map with no Cells", () => {
+      const map = new Map();
+      
+      expect(map.hasCell(new Cell(9,9))).to.equal(false);
+    })
+
+    it("should return true for a map with at least one known Cell", () => {
+      const cell = new Cell(9,9);
+      const map = new Map();
+      map.addCells([cell]);
+
+      expect(map.hasCell(cell)).to.equal(true);
+    })
+  })
 });
