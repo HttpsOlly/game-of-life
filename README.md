@@ -1,7 +1,7 @@
 # Game of Life
 
 ## Summary
-This is my solution to [BBC Game of Life technical challenge](docs/Game+of+Life+Candidate+Instructions.md).
+This is my solution to [BBC Game of Life technical challenge](docs/BBC%20Game%20of%20Life%20Candidate%20Instructions.md).
 
 ## Installation
     npm install
