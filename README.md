@@ -19,7 +19,7 @@ Without an explicit instruction to provide visual output I chose to focus on log
 1. Document 
 
 After searching the internet, I realised these things:
-- The grid size is "infinite" meaning my initial throughs of a two-dimensional array wouldn't work due to memory capacity
+- The grid size is "infinite" meaning my initial thoughts of a two-dimensional array wouldn't work due to memory capacity
 - There is no requirement to display the grid meaning I can focus on logic before presentation (if at all)
 - I should build a solution attempting each scenario in turn, not all at once
 - In attempting subsequent scenarios I could break working code for previous scenarios, and that a test driven development approach will be most useful here, something I've heard about but not utilised before, so this is my first attempt.
